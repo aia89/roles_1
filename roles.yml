@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  connection: ssh
+  roles: 
+    - { role: centos6db, when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6" }
+    - install 
